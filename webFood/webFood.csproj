@@ -1,0 +1,515 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEF9648D-408C-4CA7-8D53-BA4C02A5DCD0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>webFood</RootNamespace>
+    <AssemblyName>webFood</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\dashbord.aspx" />
+    <Content Include="Admin\Kategorite.aspx" />
+    <Content Include="Admin\kontakte.aspx" />
+    <Content Include="Admin\perdoruesit.aspx" />
+    <Content Include="Admin\produktet.aspx" />
+    <Content Include="Admin\statusi.aspx" />
+    <Content Include="App_Data\kontakti.mdf" />
+    <Content Include="App_Data\kontakti_log.ldf">
+      <DependentUpon>kontakti.mdf</DependentUpon>
+    </Content>
+    <Content Include="assets\css\animate.css\css\animate.css" />
+    <Content Include="assets\css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\css\jquery.mCustomScrollbar.css" />
+    <Content Include="assets\css\morris.js\css\morris.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\datatables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="assets\datatables\css\icon-font.min.css" />
+    <Content Include="assets\datatables\css\jquery.dataTables.min.css" />
+    <Content Include="assets\datatables\css\responsive.bootstrap4.min.css" />
+    <Content Include="assets\datatables\css\responsive.dataTables.min.css" />
+    <Content Include="assets\datatables\images\sort_asc.png" />
+    <Content Include="assets\datatables\images\sort_asc_disabled.png" />
+    <Content Include="assets\datatables\images\sort_both.png" />
+    <Content Include="assets\datatables\images\sort_desc.png" />
+    <Content Include="assets\datatables\images\sort_desc_disabled.png" />
+    <Content Include="assets\datatables\js\buttons.bootstrap4.min.js" />
+    <Content Include="assets\datatables\js\buttons.flash.min.js" />
+    <Content Include="assets\datatables\js\buttons.html5.min.js" />
+    <Content Include="assets\datatables\js\buttons.print.min.js" />
+    <Content Include="assets\datatables\js\datatable-setting.js" />
+    <Content Include="assets\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="assets\datatables\js\dataTables.buttons.min.js" />
+    <Content Include="assets\datatables\js\dataTables.responsive.min.js" />
+    <Content Include="assets\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="assets\datatables\js\jszip.min.js" />
+    <Content Include="assets\datatables\js\pdfmake.min.js" />
+    <Content Include="assets\datatables\js\responsive.bootstrap4.min.js" />
+    <Content Include="assets\datatables\js\vfs_fonts.js" />
+    <Content Include="assets\icon\icofont\css\icofont.css" />
+    <Content Include="assets\icon\icofont\fonts\icofont.svg" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.svg" />
+    <Content Include="assets\icon\themify-icons\themify-icons.css" />
+    <Content Include="assets\images\auth\logo-dark.png" />
+    <Content Include="assets\images\auth\Logo-small-bottom.png" />
+    <Content Include="assets\images\auth\logo.png" />
+    <Content Include="assets\images\avatar-1.jpg" />
+    <Content Include="assets\images\avatar-2.jpg" />
+    <Content Include="assets\images\avatar-3.jpg" />
+    <Content Include="assets\images\avatar-4.jpg" />
+    <Content Include="assets\images\bg.jpg" />
+    <Content Include="assets\images\dorina.jpg" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\flags\ENGLISH.jpg" />
+    <Content Include="assets\images\flags\FRANCE.jpg" />
+    <Content Include="assets\images\flags\PORTO.jpg" />
+    <Content Include="assets\images\flags\SPAIN.jpg" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo1.2.png" />
+    <Content Include="assets\images\mega-menu\01.jpg" />
+    <Content Include="assets\images\mega-menu\02.jpg" />
+    <Content Include="assets\images\mega-menu\03.jpg" />
+    <Content Include="assets\images\mega-menu\04.jpg" />
+    <Content Include="assets\images\mega-menu\05.jpg" />
+    <Content Include="assets\images\mega-menu\06.jpg" />
+    <Content Include="assets\images\pattern2.jpg" />
+    <Content Include="assets\images\user.png" />
+    <Content Include="assets\js\bootstrap-growl.min.js" />
+    <Content Include="assets\js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\js\classie.js" />
+    <Content Include="assets\js\classie\classie.js" />
+    <Content Include="assets\js\common-pages.js" />
+    <Content Include="assets\js\demo-12.js" />
+    <Content Include="assets\js\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="assets\js\jquery-ui\jquery-ui.min.js" />
+    <Content Include="assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="assets\js\jquery.mousewheel.min.js" />
+    <Content Include="assets\js\jquery\jquery.min.js" />
+    <Content Include="assets\js\modernizr\css-scrollbars.js" />
+    <Content Include="assets\js\modernizr\modernizr.js" />
+    <Content Include="assets\js\morris.js\morris.js" />
+    <Content Include="assets\js\pcoded.min.js" />
+    <Content Include="assets\js\popper.js\popper.min.js" />
+    <Content Include="assets\js\raphael\raphael.min.js" />
+    <Content Include="assets\js\script.js" />
+    <Content Include="assets\js\script.min.js" />
+    <Content Include="assets\js\SmoothScroll.js" />
+    <Content Include="assets\pages\accordion\accordion.js" />
+    <Content Include="assets\pages\accordion\accordion.min.js" />
+    <Content Include="assets\pages\chart\morris\morris-custom-chart.js" />
+    <Content Include="assets\pages\dashboard\amchart\css\amchart.css" />
+    <Content Include="assets\pages\dashboard\amchart\css\export.css" />
+    <Content Include="assets\pages\dashboard\amchart\js\amcharts.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\custom-amchart.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\export.min.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\images\dragIconRoundBig.svg" />
+    <Content Include="assets\pages\dashboard\amchart\js\images\dragIconRoundBigH.svg" />
+    <Content Include="assets\pages\dashboard\amchart\js\light.js" />
+    <Content Include="assets\pages\dashboard\amchart\js\serial.js" />
+    <Content Include="assets\pages\dashboard\custom-dashboard.js" />
+    <Content Include="assets\pages\google-maps\gmaps.min.js" />
+    <Content Include="assets\pages\google-maps\jquery.gmaps.js" />
+    <Content Include="assets\pages\icon-modal.js" />
+    <Content Include="assets\pages\notification\notification.css" />
+    <Content Include="assets\pages\notification\notification.js" />
+    <Content Include="assets\pages\todo\todo.js" />
+    <Content Include="assets\pages\widget\amchart\amcharts.js" />
+    <Content Include="assets\pages\widget\amchart\amcharts.min.js" />
+    <Content Include="assets\pages\widget\amchart\ammap.js" />
+    <Content Include="assets\pages\widget\amchart\ammap.min.js" />
+    <Content Include="assets\pages\widget\amchart\continentsLow.js" />
+    <Content Include="assets\pages\widget\amchart\continentsLow.min.js" />
+    <Content Include="assets\pages\widget\amchart\gauge.js" />
+    <Content Include="assets\pages\widget\amchart\gauge.min.js" />
+    <Content Include="assets\pages\widget\amchart\light.js" />
+    <Content Include="assets\pages\widget\amchart\light.min.js" />
+    <Content Include="assets\pages\widget\amchart\pie.js" />
+    <Content Include="assets\pages\widget\amchart\pie.min.js" />
+    <Content Include="assets\pages\widget\amchart\serial.js" />
+    <Content Include="assets\pages\widget\amchart\serial.min.js" />
+    <Content Include="assets\pages\widget\amchart\worldLow.js" />
+    <Content Include="assets\pages\widget\amchart\worldLow.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="imazhet\login.jpg" />
+    <Content Include="imazhet\No_image.png" />
+    <Content Include="itextsharp.dll" />
+    <Content Include="Perdoruesi\about.js" />
+    <Content Include="Perdoruesi\blogu.aspx" />
+    <Content Include="Perdoruesi\default.aspx" />
+    <Content Include="Perdoruesi\fatura.aspx" />
+    <Content Include="Perdoruesi\Karta.aspx" />
+    <Content Include="Perdoruesi\kontakti.aspx" />
+    <Content Include="Perdoruesi\Login.aspx" />
+    <Content Include="Perdoruesi\login.jpg" />
+    <Content Include="Perdoruesi\menu.aspx" />
+    <Content Include="Perdoruesi\Pagesa.aspx" />
+    <Content Include="Perdoruesi\Profili.aspx" />
+    <Content Include="Perdoruesi\rregjistrimi.aspx" />
+    <Content Include="Perdoruesi\rrethnesh.aspx" />
+    <Content Include="Perdoruesi\sliderUserControl1.ascx" />
+    <Content Include="Template\css\bootstrap.css" />
+    <Content Include="Template\css\font-awesome.min.css" />
+    <Content Include="Template\css\responsive.css" />
+    <Content Include="Template\css\style.css" />
+    <Content Include="Template\css\StyleSheet1.css" />
+    <Content Include="Template\images\about-img.png" />
+    <Content Include="Template\images\bg1.jpg" />
+    <Content Include="Template\images\bg2.jpg" />
+    <Content Include="Template\images\blogfoto2.png" />
+    <Content Include="Template\images\blogfoto3.png" />
+    <Content Include="Template\images\blogfoto4.png" />
+    <Content Include="Template\images\blogfoto5.png" />
+    <Content Include="Template\images\call-bg.jpg" />
+    <Content Include="Template\images\client1.jpg" />
+    <Content Include="Template\images\client2.jpg" />
+    <Content Include="Template\images\counter-bg.jpg" />
+    <Content Include="Template\images\dorina.jpg" />
+    <Content Include="Template\images\download %281%29.png" />
+    <Content Include="Template\images\ds1.png" />
+    <Content Include="Template\images\ds2.png" />
+    <Content Include="Template\images\ds3.jpg" />
+    <Content Include="Template\images\f1.jpg" />
+    <Content Include="Template\images\f2.png" />
+    <Content Include="Template\images\f3.png" />
+    <Content Include="Template\images\f4.png" />
+    <Content Include="Template\images\f5.png" />
+    <Content Include="Template\images\f6.png" />
+    <Content Include="Template\images\f7.png" />
+    <Content Include="Template\images\f8.png" />
+    <Content Include="Template\images\f9.png" />
+    <Content Include="Template\images\favicon.png" />
+    <Content Include="Template\images\figura3.jpg" />
+    <Content Include="Template\images\floyd-logo-300x150.jpg" />
+    <Content Include="Template\images\foto1.jpg" />
+    <Content Include="Template\images\foto2.jpg" />
+    <Content Include="Template\images\foto8.jpg" />
+    <Content Include="Template\images\fotoabout.jpg" />
+    <Content Include="Template\images\fotoblog10.png" />
+    <Content Include="Template\images\fotoblog11.png" />
+    <Content Include="Template\images\fotoblog6 %281%29.png" />
+    <Content Include="Template\images\fotoblog7.1.png" />
+    <Content Include="Template\images\hero-bg.jpg" />
+    <Content Include="Template\images\icon-2.png" />
+    <Content Include="Template\images\icon-3.png" />
+    <Content Include="Template\images\icon-4.png" />
+    <Content Include="Template\images\lamp.png" />
+    <Content Include="Template\images\logo1.2.png" />
+    <Content Include="Template\images\Man Drawing on a Piece of Paper1.mp4" />
+    <Content Include="Template\images\Minimal Simple Motivational Quote Phone Wallpaper.png" />
+    <Content Include="Template\images\o1.jpg" />
+    <Content Include="Template\images\o2.jpg" />
+    <Content Include="Template\images\kliente1.jpg" />
+    <Content Include="Template\images\klient2.jpg" />
+    <Content Include="Template\images\klient4.jpg" />
+    <Content Include="Template\images\pexels-curtis-adams-3935317.jpg" />
+    <Content Include="Template\images\pexels-emre-can-acer-2079249.jpg" />
+    <Content Include="Template\images\pexels-engin-akyurt-1642228.jpg" />
+    <Content Include="Template\images\pexels-italo-melo-2379004.jpg" />
+    <Content Include="Template\images\pexels-jean-van-der-meulen-1454806.jpg" />
+    <Content Include="Template\images\pexels-jonathan-borba-3144580.jpg" />
+    <Content Include="Template\images\pexels-jonathan-borba-3316918.jpg" />
+    <Content Include="Template\images\pexels-karolina-grabowska-4491470.jpg" />
+    <Content Include="Template\images\kliente3.jpg" />
+    <Content Include="Template\images\pexels-ksenia-chernaya-3965521.jpg" />
+    <Content Include="Template\images\pexels-mark-mccammon-1080721 %281%29.jpg" />
+    <Content Include="Template\images\pexels-matheus-ferrero-1963075.jpg" />
+    <Content Include="Template\images\pexels-max-rahubovskiy-6782567.jpg" />
+    <Content Include="Template\images\pexels-ono-kosuki-5974410.jpg" />
+    <Content Include="Template\images\pexels-photomix-company-932095.jpg" />
+    <Content Include="Template\images\pexels-tima-miroshnichenko-6474343.jpg" />
+    <Content Include="Template\images\pexels-vecislavas-popa-1668860.jpg" />
+    <Content Include="Template\images\pexels-vinicius-wiesehofer-1130624.jpg" />
+    <Content Include="Template\images\pexels-vlada-karpovich-4050323.jpg" />
+    <Content Include="Template\images\serena.png" />
+    <Content Include="Template\images\thuma.png" />
+    <Content Include="Template\images\tov.png" />
+    <Content Include="Template\images\r1.jpg" />
+    <Content Include="Template\images\Untitled design.png" />
+    <Content Include="Template\images\White Simple Phone Wallpaper.png" />
+    <Content Include="Template\js\bootstrap.js" />
+    <Content Include="Template\js\custom.js" />
+    <Content Include="Template\js\jquery-3.4.1.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\dashbord.aspx.cs">
+      <DependentUpon>dashbord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\dashbord.aspx.designer.cs">
+      <DependentUpon>dashbord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Kategorite.aspx.cs">
+      <DependentUpon>Kategorite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Kategorite.aspx.designer.cs">
+      <DependentUpon>Kategorite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\kontakte.aspx.cs">
+      <DependentUpon>kontakte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\kontakte.aspx.designer.cs">
+      <DependentUpon>kontakte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\perdoruesit.aspx.cs">
+      <DependentUpon>perdoruesit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\perdoruesit.aspx.designer.cs">
+      <DependentUpon>perdoruesit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\produktet.aspx.cs">
+      <DependentUpon>produktet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\produktet.aspx.designer.cs">
+      <DependentUpon>produktet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\statusi.aspx.cs">
+      <DependentUpon>statusi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\statusi.aspx.designer.cs">
+      <DependentUpon>statusi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connection.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\blogu.aspx.cs">
+      <DependentUpon>blogu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\blogu.aspx.designer.cs">
+      <DependentUpon>blogu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\fatura.aspx.cs">
+      <DependentUpon>fatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\fatura.aspx.designer.cs">
+      <DependentUpon>fatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\Karta.aspx.cs">
+      <DependentUpon>Karta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\Karta.aspx.designer.cs">
+      <DependentUpon>Karta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\kontakti.aspx.cs">
+      <DependentUpon>kontakti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\kontakti.aspx.designer.cs">
+      <DependentUpon>kontakti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\Pagesa.aspx.cs">
+      <DependentUpon>Pagesa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\Pagesa.aspx.designer.cs">
+      <DependentUpon>Pagesa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\Perdoruesi.Master.cs">
+      <DependentUpon>Perdoruesi.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\Perdoruesi.Master.designer.cs">
+      <DependentUpon>Perdoruesi.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\Profili.aspx.cs">
+      <DependentUpon>Profili.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\Profili.aspx.designer.cs">
+      <DependentUpon>Profili.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\rregjistrimi.aspx.cs">
+      <DependentUpon>rregjistrimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\rregjistrimi.aspx.designer.cs">
+      <DependentUpon>rregjistrimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\rrethnesh.aspx.cs">
+      <DependentUpon>rrethnesh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\rrethnesh.aspx.designer.cs">
+      <DependentUpon>rrethnesh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perdoruesi\sliderUserControl1.ascx.cs">
+      <DependentUpon>sliderUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perdoruesi\sliderUserControl1.ascx.designer.cs">
+      <DependentUpon>sliderUserControl1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\admin.Master" />
+    <Content Include="assets\icon\icofont\fonts\icofont.eot" />
+    <Content Include="assets\icon\icofont\fonts\icofont.ttf" />
+    <Content Include="assets\icon\icofont\fonts\icofont.woff" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.eot" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.ttf" />
+    <Content Include="assets\icon\themify-icons\fonts\themify.woff" />
+    <Content Include="assets\datatables\fonts\ionicons.ttf" />
+    <Content Include="assets\datatables\fonts\ionicons.woff" />
+    <Content Include="assets\datatables\fonts\themify.ttf" />
+    <Content Include="assets\datatables\fonts\themify.woff" />
+    <None Include="packages.config" />
+    <Content Include="Template\css\style.css.map" />
+    <Content Include="Template\css\style.scss" />
+    <Content Include="Template\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Template\fonts\fontawesome-webfont.woff" />
+    <Content Include="Template\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Perdoruesi\Perdoruesi.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Downloads\" />
+    <Folder Include="imazhet\Kategorite\" />
+    <Folder Include="imazhet\perdoruesit\" />
+    <Folder Include="imazhet\Produktet\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59803</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59803/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
